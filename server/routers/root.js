@@ -8,3 +8,4 @@ router.get('^/$|/index(.html)?', (req,res) => {
 
 
 module.exports = router
+

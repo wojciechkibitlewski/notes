@@ -24,6 +24,7 @@ app.use(cookieParse());
 
 app.use('/', express.static(path.join(__dirname, 'public')));
 app.use('/', require('./routers/root'));
+app.use('/users', require('./routers/userRouters'));
 
 app.all('*', (req,res) => {
     res.status(404)
