@@ -23,8 +23,10 @@ app.use(express.json());
 app.use(cookieParse());
 
 app.use('/', express.static(path.join(__dirname, 'public')));
-app.use('/', require('./routers/root'));
-app.use('/users', require('./routers/userRouters'));
+app.use('/', require('./routes/root'));
+app.use('/users', require('./routes/userRoutes'));
+app.use('/notes', require('./routes/noteRoutes'))
+
 
 app.all('*', (req,res) => {
     res.status(404)
