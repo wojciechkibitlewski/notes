@@ -9,8 +9,14 @@ const UsersList = () => {
     isSuccess,
     isError,
     error
-  } = useGetUsersQuery();
-
+  } = useGetUsersQuery(undefined, {
+    pollingInterval: 15000,
+    refetchOnFocus: true,
+    refetchOnMountOrArgChange:true
+  });
+  /// to rozwiązanie (powyżej) powoduje automatyczne odświeżanie 
+  /// listy użytkowników co 15 sekund (15000 ms)
+  
   let content;
 
   if(isLoading) content = <p>Loading...</p>
